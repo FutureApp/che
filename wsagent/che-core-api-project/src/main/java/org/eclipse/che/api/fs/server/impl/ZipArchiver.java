@@ -42,6 +42,7 @@ class ZipArchiver {
     try (FileInputStream fis = new FileInputStream(zipInFile); ) {
       ZipEntry zipEntry = new ZipEntry(fileName);
       zos.putNextEntry(zipEntry);
+      zos.closeEntry();
       IOUtils.copy(fis, zos);
     }
   }
